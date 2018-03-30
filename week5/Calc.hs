@@ -100,31 +100,3 @@ testMM = testExp :: Maybe MinMax
 
 testSat :: Maybe Mod7
 testSat = testExp :: Maybe Mod7
-
-
--- | Exercise 5
-instance Expr SVM.Program where
-  -- lit :: Integer -> Program
-  lit a = [SVM.PushI a]
-
-  -- add :: Program -> Program -> Program
-  add ps ps' = ps ++ ps'
-
-  -- mul :: Program -> Program -> Program
-  mul ps ps' = ps ++ ps'
-
-
-compile :: String -> Maybe SVM.Program
-compile str = parseExp lit add mul str
-
-testRunStringOnVM :: String -> Either String SVM.StackVal
-testRunStringOnVM str =
-  case compile str of
-    Just program ->
-      SVM.stackVM program
-
-    Nothing      ->
-      Left "Compilation failed"
-
-
--- | Exercise 6
