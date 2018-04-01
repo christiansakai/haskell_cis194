@@ -11,3 +11,7 @@ TODO:
   * fun2
   * Balanced Binary Tree
   * foldr foldl
+
+* Week 6
+  * ruler
+  * fibonacci from stream
